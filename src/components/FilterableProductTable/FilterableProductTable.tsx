@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./FilterableProductTable.css";
 import { IProduct } from "../../models/products.interfaces";
 import SearchBar from "../SearchBar/SearchBar";
@@ -15,6 +15,10 @@ const FilterableProductTable: FC<{ products: IProduct[] }> = ({ products }) => {
     //     getData(),
     //     ({ category }) => category
     // );
+
+    useEffect(() => {
+        document.title = `React + TS + ${filterText ? 'filtered' : 'full'} table`;
+    })
 
     const getData = () => {
         return products
